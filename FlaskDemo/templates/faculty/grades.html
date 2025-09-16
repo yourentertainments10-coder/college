@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+
+{% block title %}Grade Management - DSEU{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Sidebar -->
+        <nav class="col-md-3 col-lg-2 sidebar bg-light p-3">
+            <div class="sidebar-sticky">
+                <div class="text-center mb-4">
+                    <i class="fas fa-star fa-4x text-primary"></i>
+                    <h5 class="mt-2">{{ session.user }}</h5>
+                    <p class="text-muted">Faculty</p>
+                </div>
+                <div class="list-group">
+                    <a href="{{ url_for('faculty_dashboard') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    <a href="#grade-entry" class="list-group-item list-group-item-action active">
+                        <i class="fas fa-edit"></i> Grade Entry
+                    </a>
+                    <a href="#grade-overview" class="list-group-item list-group-item-action">
+                        <i class="fas fa-chart-bar"></i> Overview
+                    </a>
+                    <a href="#reports" class="list-group-item list-group-item-action">
+                        <i class="fas fa-file-alt"></i> Reports
+                    </a>
+                    <a href="{{ url_for('logout') }}" class="list-group-item list-group-item-action text-danger">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Grade Management</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <button type="button" class="btn btn-sm btn-outline-primary mr-2">
+                        <i class="fas fa-download"></i> Export Grades
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grade Entry Section -->
+            <section id="grade-entry" class="mb-5">
+                <div class="card">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0">Grade Entry</h3>
+                        <div class="d-flex">
+                            <select class="form-control form-control-sm mr-2">
+                                <option>Select Class</option>
+                                <option>CS101 - Introduction to Programming</option>
+                                <option>CS102 - Data Structures</option>
+                            </select>
+                            <select class="form-control form-control-sm">
+                                <option>Select Assessment</option>
+                                <option>Mid Term</option>
+                                <option>Final Term</option>
+                                <option>Assignment 1</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Roll No.</th>
+                                        <th>Student Name</th>
+                                        <th>Current Grade</th>
+                                        <th>New Grade</th>
+                                        <th>Comments</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2024001</td>
+                                        <td>John Doe</td>
+                                        <td>B+</td>
+                                        <td>
+                                            <select class="form-control form-control-sm">
+                                                <option>A</option>
+                                                <option>A-</option>
+                                                <option>B+</option>
+                                                <option>B</option>
+                                                <option>B-</option>
+                                                <option>C+</option>
+                                                <option>C</option>
+                                                <option>F</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-success">
+                                                <i class="fas fa-save"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <!-- Add more students -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-right mt-3">
+                            <button class="btn btn-success">
+                                <i class="fas fa-save mr-2"></i>Save All Grades
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Grade Overview -->
+            <section id="grade-overview" class="mb-5">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0">Grade Distribution</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <canvas id="gradeDistributionChart"></canvas>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="grade-stats">
+                                    <h5>Class Statistics</h5>
+                                    <table class="table">
+                                        <tr>
+                                            <td>Class Average:</td>
+                                            <td><strong>3.4 GPA</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Highest Grade:</td>
+                                            <td><strong>A (4.0)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lowest Grade:</td>
+                                            <td><strong>C (2.0)</strong></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports" class="mb-5">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="mb-0">Grade Reports</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-file-pdf fa-3x text-danger mb-3"></i>
+                                        <h5>Class Report</h5>
+                                        <button class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-download mr-2"></i>Download PDF
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add more report types -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .sidebar {
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        min-height: calc(100vh - 60px);
+    }
+    
+    .list-group-item {
+        border: none;
+        padding: 0.75rem 1.25rem;
+        transition: all 0.3s ease;
+    }
+    
+    .list-group-item:hover {
+        background-color: rgba(26, 115, 232, 0.1);
+        transform: translateX(5px);
+    }
+    
+    .list-group-item i {
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+    }
+    
+    .card {
+        transition: transform 0.3s ease;
+        margin-bottom: 20px;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .form-control-sm {
+        height: calc(1.5em + 0.5rem + 2px);
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        border-radius: 0.2rem;
+    }
+    
+    @media (max-width: 768px) {
+        .sidebar {
+            position: static;
+            height: auto;
+            padding-bottom: 20px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Grade Distribution Chart
+    var ctx = document.getElementById('gradeDistributionChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'F'],
+            datasets: [{
+                label: 'Number of Students',
+                data: [5, 7, 10, 8, 6, 4, 2, 1],
+                backgroundColor: [
+                    'rgba(52, 168, 83, 0.6)',
+                    'rgba(66, 133, 244, 0.6)',
+                    'rgba(251, 188, 4, 0.6)',
+                    'rgba(234, 67, 53, 0.6)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+{% endblock %} 

@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - DSEU{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Sidebar with Navigation -->
+        <nav class="col-md-3 col-lg-2 sidebar bg-light p-3">
+            <div class="sidebar-sticky">
+                <h5 class="mb-3">Quick Links</h5>
+                <div class="list-group">
+                    <a href="{{ url_for('home') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="#overview" class="list-group-item list-group-item-action">
+                        <i class="fas fa-info-circle"></i> Overview
+                    </a>
+                    <a href="#vision" class="list-group-item list-group-item-action">
+                        <i class="fas fa-eye"></i> Vision & Mission
+                    </a>
+                    <a href="#leadership" class="list-group-item list-group-item-action">
+                        <i class="fas fa-users"></i> Leadership
+                    </a>
+                    <a href="#achievements" class="list-group-item list-group-item-action">
+                        <i class="fas fa-trophy"></i> Achievements
+                    </a>
+                    <a href="#campus" class="list-group-item list-group-item-action">
+                        <i class="fas fa-university"></i> Campus Life
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">About DSEU</h1>
+            </div>
+
+            <!-- Overview Section -->
+            <section id="overview" class="mb-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">University Overview</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Delhi Skill and Entrepreneurship University (DSEU) was established in 2020 by the Government of NCT of Delhi to equip students with world-class skill education to enable access to aspirational jobs and inculcate entrepreneurial mindset and entrepreneurship.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Quick Facts</h5>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-calendar-alt text-primary mr-2"></i> Established: 2020</li>
+                                            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Location: Delhi, India</li>
+                                            <li><i class="fas fa-users text-primary mr-2"></i> Students: 5000+</li>
+                                            <li><i class="fas fa-chalkboard-teacher text-primary mr-2"></i> Faculty: 200+</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vision & Mission Section -->
+            <section id="vision" class="mb-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0">Vision & Mission</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h4 class="card-title"><i class="fas fa-eye text-primary mr-2"></i>Vision</h4>
+                                        <p class="card-text">To be a globally acclaimed university for skill, entrepreneurship and innovation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h4 class="card-title"><i class="fas fa-bullseye text-primary mr-2"></i>Mission</h4>
+                                        <p class="card-text">To create a skilled workforce ready for the industries of today and tomorrow.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leadership Section -->
+            <section id="leadership" class="mb-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="mb-0">Leadership</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-user-circle fa-4x mb-3 text-primary"></i>
+                                        <h5 class="card-title">Vice Chancellor</h5>
+                                        <p class="card-text">Prof. (Dr.) Neharika Vohra</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add more leadership cards -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .sidebar {
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        min-height: calc(100vh - 60px);
+    }
+    
+    .list-group-item {
+        border: none;
+        padding: 0.75rem 1.25rem;
+        transition: all 0.3s ease;
+    }
+    
+    .list-group-item:hover {
+        background-color: rgba(26, 115, 232, 0.1);
+        transform: translateX(5px);
+    }
+    
+    .list-group-item i {
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+    }
+    
+    .card {
+        transition: transform 0.3s ease;
+        margin-bottom: 20px;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    
+    @media (max-width: 768px) {
+        .sidebar {
+            position: static;
+            height: auto;
+            padding-bottom: 20px;
+        }
+    }
+</style>
+{% endblock %}

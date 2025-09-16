@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light background color */
+            font-family: Arial, sans-serif; /* Change font family */
+            line-height: 1.6; /* Improve line spacing */
+        }
+        h1, h2 {
+            color: #343a40; /* Darker text color */
+        }
+        h1 {
+            margin-bottom: 20px; /* Space below the header */
+        }
+        .book-card {
+            margin-bottom: 20px; /* Space between book cards */
+            border: 1px solid #dee2e6; /* Border for book card */
+            border-radius: 5px; /* Rounded corners */
+            padding: 15px; /* Padding inside the card */
+            background-color: #fff; /* White background for cards */
+        }
+        .filter {
+            margin-bottom: 20px; /* Space below filter */
+        }
+        footer {
+            background-color: #343a40; /* Dark footer background */
+            color: white; /* White text color */
+            padding: 10px 0; /* Padding for footer */
+        }
+    </style>
+</head>
+<body>
+    <header class="text-center my-4">
+        <h1>Library</h1>
+    </header>
+    <main class="container my-4">
+        <h2>Available Books</h2>
+
+        <!-- Filter Section -->
+        <div class="filter">
+            <h4>Filter by Author:</h4>
+            <select id="authorFilter" class="form-control" onchange="filterBooks()">
+                <option value="all">All Authors</option>
+                <option value="Author 1">Author 1</option>
+                <option value="Author 2">Author 2</option>
+                <option value="Author 3">Author 3</option>
+            </select>
+        </div>
+
+        <!-- Book List -->
+        <div id="bookList">
+            <div class="book-card" data-author="Author 1">
+                <h5>Book Title 1</h5>
+                <p>Author: Author 1</p>
+                <button class="btn btn-primary" onclick="selectBook('Book Title 1')">Select Book</button>
+            </div>
+            <div class="book-card" data-author="Author 2">
+                <h5>Book Title 2</h5>
+                <p>Author: Author 2</p>
+                <button class="btn btn-primary" onclick="selectBook('Book Title 2')">Select Book</button>
+            </div>
+            <div class="book-card" data-author="Author 3">
+                <h5>Book Title 3</h5>
+                <p>Author: Author 3</p>
+                <button class="btn btn-primary" onclick="selectBook('Book Title 3')">Select Book</button>
+            </div>
+            <!-- More books can be added here -->
+        </div>
+    </main>
+    <footer class="text-center my-4">
+        <p>&copy; 2023 University Name</p>
+    </footer>
+
+    <script>
+        function filterBooks() {
+            var filter = document.getElementById("authorFilter").value;
+            var books = document.querySelectorAll(".book-card");
+
+            books.forEach(function(book) {
+                if (filter === "all" || book.getAttribute("data-author") === filter) {
+                    book.style.display = "block"; // Show the book
+                } else {
+                    book.style.display = "none"; // Hide the book
+                }
+            });
+        }
+
+        function selectBook(bookTitle) {
+            alert("You have selected: " + bookTitle);}
+            // Here we would typically send the selected
+

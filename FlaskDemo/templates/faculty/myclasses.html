@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}My Classes - DSEU{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Sidebar -->
+        <nav class="col-md-3 col-lg-2 sidebar bg-light p-3">
+            <div class="sidebar-sticky">
+                <div class="text-center mb-4">
+                    <i class="fas fa-chalkboard-teacher fa-4x text-primary"></i>
+                    <h5 class="mt-2">{{ session.user }}</h5>
+                    <p class="text-muted">Faculty</p>
+                </div>
+                <div class="list-group">
+                    <a href="{{ url_for('faculty_dashboard') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    <a href="#current-classes" class="list-group-item list-group-item-action active">
+                        <i class="fas fa-chalkboard"></i> Current Classes
+                    </a>
+                    <a href="#past-classes" class="list-group-item list-group-item-action">
+                        <i class="fas fa-history"></i> Past Classes
+                    </a>
+                    <a href="#class-materials" class="list-group-item list-group-item-action">
+                        <i class="fas fa-book"></i> Class Materials
+                    </a>
+                    <a href="{{ url_for('logout') }}" class="list-group-item list-group-item-action text-danger">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">My Classes</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <button type="button" class="btn btn-sm btn-primary mr-2">
+                        <i class="fas fa-plus"></i> Add New Class
+                    </button>
+                </div>
+            </div>
+
+            <!-- Current Classes -->
+            <section id="current-classes" class="mb-5">
+                <div class="card">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0">Current Classes</h3>
+                        <button class="btn btn-light btn-sm">
+                            <i class="fas fa-download mr-2"></i>Export Schedule
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Course Code</th>
+                                        <th>Course Name</th>
+                                        <th>Schedule</th>
+                                        <th>Room</th>
+                                        <th>Students</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>CS101</td>
+                                        <td>Introduction to Programming</td>
+                                        <td>Mon, Wed 10:00 AM</td>
+                                        <td>Lab 3</td>
+                                        <td>35</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-sm btn-outline-primary">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-info">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-success">
+                                                    <i class="fas fa-clipboard-check"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Add more classes -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Class Materials -->
+            <section id="class-materials" class="mb-5">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0">Class Materials</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">CS101 Materials</h5>
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <i class="fas fa-file-pdf mr-2 text-danger"></i>
+                                                Lecture Notes Week 1
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <i class="fas fa-file-powerpoint mr-2 text-warning"></i>
+                                                Presentation Week 1
+                                            </a>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm mt-3">
+                                            <i class="fas fa-upload mr-2"></i>Upload New
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add more material cards -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .sidebar {
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        min-height: calc(100vh - 60px);
+    }
+    
+    .list-group-item {
+        border: none;
+        padding: 0.75rem 1.25rem;
+        transition: all 0.3s ease;
+    }
+    
+    .list-group-item:hover {
+        background-color: rgba(26, 115, 232, 0.1);
+        transform: translateX(5px);
+    }
+    
+    .list-group-item i {
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+    }
+    
+    .card {
+        transition: transform 0.3s ease;
+        margin-bottom: 20px;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .btn-group .btn {
+        margin: 0 2px;
+    }
+    
+    @media (max-width: 768px) {
+        .sidebar {
+            position: static;
+            height: auto;
+            padding-bottom: 20px;
+        }
+    }
+</style>
+{% endblock %} 

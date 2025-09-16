@@ -1,0 +1,172 @@
+<footer class="bg-light text-center text-lg-start mt-4">
+    <div class="container p-4">
+        <div class="row g-4">
+            <!-- Contact Info -->
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <h5 class="text-uppercase mb-4">Contact Us</h5>
+                <div class="contact-info">
+                    <p class="d-flex align-items-center justify-content-center justify-content-lg-start mb-3">
+                        <i class="fas fa-envelope me-3 text-primary"></i>
+                        info@dseu.edu
+                    </p>
+                    <p class="d-flex align-items-center justify-content-center justify-content-lg-start mb-3">
+                        <i class="fas fa-phone me-3 text-primary"></i>
+                        +91 XXXXXXXXXX
+                    </p>
+                    <p class="d-flex align-items-center justify-content-center justify-content-lg-start mb-3">
+                        <i class="fas fa-map-marker-alt me-3 text-primary"></i>
+                        Dwarka Sector 9, New Delhi, 110077
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <h5 class="text-uppercase mb-4">Quick Links</h5>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-3">
+                        <a href="{{ url_for('admission_notices') }}" class="text-dark d-flex align-items-center justify-content-center justify-content-lg-start">
+                            <i class="fas fa-angle-right me-2"></i>Admissions
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="{{ url_for('academic') }}" class="text-dark d-flex align-items-center justify-content-center justify-content-lg-start">
+                            <i class="fas fa-angle-right me-2"></i>Academics
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="{{ url_for('about_us') }}" class="text-dark d-flex align-items-center justify-content-center justify-content-lg-start">
+                            <i class="fas fa-angle-right me-2"></i>About Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Social Media -->
+            <div class="col-lg-4 col-md-12">
+                <h5 class="text-uppercase mb-4">Follow Us</h5>
+                <div class="social-links d-flex justify-content-center justify-content-lg-start gap-3">
+                    <a href="#" class="btn btn-outline-dark btn-floating">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-dark btn-floating">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-dark btn-floating">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-dark btn-floating">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Copyright -->
+    <div class="text-center p-3 border-top">
+        © 2024 DSEU. All rights reserved.
+    </div>
+</footer>
+
+<style>
+    footer {
+        margin-top: auto;
+    }
+
+    footer h5 {
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-info p {
+        margin-bottom: 0.75rem;
+    }
+
+    .contact-info i {
+        width: 24px;
+        text-align: center;
+    }
+
+    .social-links {
+        gap: 0.5rem;
+    }
+
+    .btn-floating {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .btn-floating:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    footer a {
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    footer a:hover {
+        color: var(--primary-color) !important;
+        transform: translateX(5px);
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+        footer {
+            text-align: center;
+        }
+
+        .contact-info p {
+            justify-content: center !important;
+        }
+
+        .social-links {
+            justify-content: center !important;
+        }
+
+        footer h5 {
+            margin-top: 1.5rem;
+        }
+
+        .btn-floating {
+            width: 36px;
+            height: 36px;
+        }
+
+        .container {
+            padding: 1rem;
+        }
+
+        footer ul li {
+            margin-bottom: 0.75rem;
+        }
+    }
+
+    /* Touch-friendly improvements */
+    @media (max-width: 576px) {
+        footer a, 
+        .btn-floating {
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+
+        .social-links {
+            flex-wrap: wrap;
+        }
+
+        .contact-info p {
+            font-size: 0.9rem;
+        }
+    }
+</style> 

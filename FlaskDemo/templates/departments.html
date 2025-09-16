@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+        }
+        nav ul li a:hover {
+            background-color: #555;
+            border-radius: 4px;
+        }
+
+        /* Departments Section */
+        .departments {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .departments h1 {
+            font-size: 2em;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        /* List Styling */
+        .departments ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .departments ul li {
+            background: #f0f0f0;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 6px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .departments ul li:hover {
+            background: #e0e0e0;
+            transform: scale(1.02);
+        }
+
+        /* Footer Styling */
+        footer {
+            margin-top: 20px;
+            color: #777;
+            font-size: 14px;
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Departments Section -->
+    <section class="departments">
+        <h1>Academic Departments</h1>
+        <ul>
+            <li>Computer Science</li>
+            <li>Physics</li>
+            <li>Chemistry</li>
+            <li>Mathematics</li>
+            <li>English Literature</li>
+            <li>Economics</li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© DSEU, Dwarka | All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+

@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+
+{% block title %}Timetable - DSEU{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Sidebar with Navigation -->
+        <nav class="col-md-3 col-lg-2 sidebar bg-light p-3">
+            <div class="sidebar-sticky">
+                <div class="text-center mb-4">
+                    <i class="fas fa-calendar-alt fa-4x text-primary"></i>
+                    <h5 class="mt-2">{{ session.user }}</h5>
+                    <p class="text-muted">Student</p>
+                </div>
+                <div class="list-group">
+                    <a href="{{ url_for('student_portal') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    <a href="#today" class="list-group-item list-group-item-action">
+                        <i class="fas fa-clock"></i> Today's Schedule
+                    </a>
+                    <a href="#weekly" class="list-group-item list-group-item-action">
+                        <i class="fas fa-calendar-week"></i> Weekly Schedule
+                    </a>
+                    <a href="#subjects" class="list-group-item list-group-item-action">
+                        <i class="fas fa-book"></i> My Subjects
+                    </a>
+                    <a href="{{ url_for('logout') }}" class="list-group-item list-group-item-action text-danger">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Class Timetable</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <button type="button" class="btn btn-sm btn-outline-primary mr-2">
+                        <i class="fas fa-download"></i> Download Timetable
+                    </button>
+                </div>
+            </div>
+
+            <!-- Today's Schedule -->
+            <section id="today" class="mb-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0">Today's Schedule</h3>
+                        <span class="badge badge-light">Monday</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-badge bg-success">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h5>9:00 AM - 10:30 AM</h5>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="mb-1">Computer Networks (Lab 3)</p>
+                                            <small class="text-muted">Prof.Bushra Jamal</small>
+                                        </div>
+                                        <span class="badge badge-success">Ongoing</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add more classes for today -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weekly Schedule -->
+            <section id="weekly" class="mb-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0">Weekly Schedule</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered timetable">
+                                <thead>
+                                    <tr class="bg-light">
+                                        <th width="100">Time</th>
+                                        <th>Monday</th>
+                                        <th>Tuesday</th>
+                                        <th>Wednesday</th>
+                                        <th>Thursday</th>
+                                        <th>Friday</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="time-slot">9:00 - 10:30</td>
+                                        <td class="class-slot bg-light-primary">
+                                            <div class="class-info">
+                                                <h6>Computer Networks</h6>
+                                                <small>Lab 3</small>
+                                                <div class="text-muted">Prof.Bushra Jamal</div>
+                                            </div>
+                                        </td>
+                                        <td class="class-slot bg-light-success">
+                                            <div class="class-info">
+                                                <h6>Web Development</h6>
+                                                <small>Room 102</small>
+                                                <div class="text-muted">Dr.Shilpa Bahal </div>
+                                            </div>
+                                        </td>
+                                        <td class="class-slot bg-light-info">
+                                            <div class="class-info">
+                                                <h6>Database Management</h6>
+                                                <small>Lab 1</small>
+                                                <div class="text-muted">Prof.Kanwalpreet Kaur</div>
+                                            </div>
+                                        </td>
+                                        <td class="class-slot bg-light-warning">
+                                            <div class="class-info">
+                                                <h6>AI Basics</h6>
+                                                <small>Room 201</small>
+                                                <div class="text-muted">Dr. Kavita Khanna</div>
+                                            </div>
+                                        </td>
+                                        <td class="class-slot bg-light-danger">
+                                            <div class="class-info">
+                                                <h6>Project Lab</h6>
+                                                <small>Lab 4</small>
+                                                <div class="text-muted">Prof. Inderjeet</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Add more time slots -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Subject Details -->
+            <section id="subjects" class="mb-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="mb-0">Subject Details</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Computer Networks</h5>
+                                        <p class="card-text">
+                                            <i class="fas fa-user-tie text-primary mr-2"></i>Prof.Bushra<br>
+                                            <i class="fas fa-clock text-success mr-2"></i>3 Hours/Week<br>
+                                            <i class="fas fa-map-marker-alt text-danger mr-2"></i>Lab 3
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add more subject cards -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .sidebar {
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        min-height: calc(100vh - 60px);
+    }
+    
+    .timeline {
+        position: relative;
+        padding: 20px 0;
+    }
+
+    .timeline-item {
+        position: relative;
+        padding-left: 50px;
+        margin-bottom: 30px;
+    }
+
+    .timeline-badge {
+        position: absolute;
+        left: 0;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 36px;
+        color: white;
+    }
+
+    .timeline-content {
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .timetable th, .timetable td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 15px;
+    }
+
+    .class-slot {
+        transition: all 0.3s ease;
+        min-height: 100px;
+    }
+
+    .class-slot:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 1;
+        position: relative;
+    }
+
+    .bg-light-primary { background-color: rgba(26, 115, 232, 0.1); }
+    .bg-light-success { background-color: rgba(52, 168, 83, 0.1); }
+    .bg-light-info { background-color: rgba(66, 133, 244, 0.1); }
+    .bg-light-warning { background-color: rgba(251, 188, 4, 0.1); }
+    .bg-light-danger { background-color: rgba(234, 67, 53, 0.1); }
+
+    .class-info {
+        padding: 10px;
+    }
+
+    .class-info h6 {
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .class-info small {
+        display: block;
+        color: #666;
+        margin-bottom: 5px;
+    }
+
+    @media (max-width: 768px) {
+        .sidebar {
+            position: static;
+            height: auto;
+            padding-bottom: 20px;
+        }
+        
+        .timeline-item {
+            padding-left: 30px;
+        }
+        
+        .timeline-badge {
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            font-size: 12px;
+        }
+    }
+</style>
+{% endblock %}
+

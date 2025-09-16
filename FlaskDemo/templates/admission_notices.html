@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}Admission Notices - DSEU{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Sidebar with Navigation -->
+        <nav class="col-md-3 col-lg-2 sidebar bg-light p-3">
+            <div class="sidebar-sticky">
+                <h5 class="mb-3">Quick Links</h5>
+                <div class="list-group">
+                    <a href="{{ url_for('home') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="#academic-calendar" class="list-group-item list-group-item-action">
+                        <i class="fas fa-calendar-alt"></i> Academic Calendar
+                    </a>
+                    <a href="#undergraduate" class="list-group-item list-group-item-action">
+                        <i class="fas fa-graduation-cap"></i> Undergraduate
+                    </a>
+                    <a href="#postgraduate" class="list-group-item list-group-item-action">
+                        <i class="fas fa-user-graduate"></i> Postgraduate
+                    </a>
+                    <a href="#press-release" class="list-group-item list-group-item-action">
+                        <i class="fas fa-newspaper"></i> Press Release
+                    </a>
+                    <a href="#announcements" class="list-group-item list-group-item-action">
+                        <i class="fas fa-bullhorn"></i> Notices/Announcements
+                    </a>
+                    <a href="https://dseu.ac.in" target="_blank" class="list-group-item list-group-item-action">
+                        <i class="fas fa-external-link-alt"></i> DSEU Website
+                    </a>
+                    <a href="https://nta.ac.in" target="_blank" class="list-group-item list-group-item-action">
+                        <i class="fas fa-external-link-alt"></i> NTA Website
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Admissions 2025-26</h1>
+            </div>
+
+            <!-- Academic Calendar Section -->
+            <section id="academic-calendar" class="mb-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Academic Calendar</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Academic Calendar 2024-25
+                                <i class="fas fa-download"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Undergraduate Section -->
+            <section id="undergraduate" class="mb-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0">Undergraduate Programs</h3>
+                    </div>
+                    <div class="card-body">
+                        <h4>MOP-UP Round (UG)</h4>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-file-alt mr-2"></i>
+                                Vacant Seat Matrix for MOP UP Round II
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-file-alt mr-2"></i>
+                                MOP-UP Round Admission II
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-file-alt mr-2"></i>
+                                Extension of MOP-UP Round (Undergraduate Admissions) 2024-25
+                            </a>
+                            <a href="https://ugadmission.uod.ac.in/mopup" class="list-group-item list-group-item-action">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Registration Portal
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Important Notices Section -->
+            <section id="announcements" class="mb-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="mb-0">Important Notices</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            Stay tuned for more updates regarding admissions.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .sidebar {
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        min-height: calc(100vh - 60px);
+    }
+    
+    .list-group-item {
+        border: none;
+        padding: 0.75rem 1.25rem;
+        transition: all 0.3s ease;
+    }
+    
+    .list-group-item:hover {
+        background-color: rgba(26, 115, 232, 0.1);
+        transform: translateX(5px);
+    }
+    
+    .list-group-item i {
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+    }
+    
+    .card {
+        transition: transform 0.3s ease;
+        margin-bottom: 20px;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    
+    @media (max-width: 768px) {
+        .sidebar {
+            position: static;
+            height: auto;
+            padding-bottom: 20px;
+        }
+    }
+</style>
+{% endblock %} 

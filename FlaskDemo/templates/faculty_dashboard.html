@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+
+{% block title %}Faculty Dashboard - DSEU{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Sidebar with Navigation -->
+        <nav class="col-md-3 col-lg-2 sidebar bg-light p-3">
+            <div class="sidebar-sticky">
+                <div class="text-center mb-4">
+                    <i class="fas fa-user-tie fa-4x text-primary"></i>
+                    <h5 class="mt-2">{{ session.user }}</h5>
+                    <p class="text-muted">Faculty</p>
+                </div>
+                <div class="list-group">
+                    <a href="{{ url_for('faculty_dashboard') }}" class="list-group-item list-group-item-action active">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    <a href="{{ url_for('faculty_myclasses') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-chalkboard"></i> My Classes
+                    </a>
+                    <a href="{{ url_for('faculty_students') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-user-graduate"></i> Students
+                    </a>
+                    <a href="{{ url_for('faculty_attendance') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-clipboard-list"></i> Attendance
+                    </a>
+                    <a href="{{ url_for('faculty_assignments') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-tasks"></i> Assignments
+                    </a>
+                    <a href="{{ url_for('faculty_grades') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-star"></i> Grades
+                    </a>
+                    <a href="{{ url_for('faculty_schedule') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-calendar-alt"></i> Schedule
+                    </a>
+                    <a href="{{ url_for('logout') }}" class="list-group-item list-group-item-action text-danger">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Faculty Dashboard</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <button type="button" class="btn btn-sm btn-outline-primary mr-2">
+                        <i class="fas fa-download"></i> Download Reports
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="row mb-4">
+                <div class="col-md-3 mb-4">
+                    <div class="card bg-primary text-white h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="text-uppercase mb-0">Classes</h6>
+                                    <h2 class="display-4 mb-0">4</h2>
+                                </div>
+                                <i class="fas fa-chalkboard fa-2x opacity-50"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card bg-success text-white h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="text-uppercase mb-0">Students</h6>
+                                    <h2 class="display-4 mb-0">120</h2>
+                                </div>
+                                <i class="fas fa-users fa-2x opacity-50"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card bg-info text-white h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="text-uppercase mb-0">Assignments</h6>
+                                    <h2 class="display-4 mb-0">8</h2>
+                                </div>
+                                <i class="fas fa-tasks fa-2x opacity-50"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card bg-warning text-white h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="text-uppercase mb-0">Pending</h6>
+                                    <h2 class="display-4 mb-0">3</h2>
+                                </div>
+                                <i class="fas fa-clock fa-2x opacity-50"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Classes Section -->
+            <section id="classes" class="mb-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Current Classes</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Course Code</th>
+                                        <th>Course Name</th>
+                                        <th>Students</th>
+                                        <th>Schedule</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>CS101</td>
+                                        <td>Introduction to Programming</td>
+                                        <td>35</td>
+                                        <td>Mon, Wed 10:00 AM</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-info">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <!-- Add more classes -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Activities -->
+            <section id="activities" class="mb-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0">Recent Activities</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Assignment Graded</h5>
+                                    <small>3 days ago</small>
+                                </div>
+                                <p class="mb-1">Graded Programming Assignment for CS101</p>
+                            </a>
+                            <!-- Add more activities -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .sidebar {
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        min-height: calc(100vh - 60px);
+    }
+    
+    .list-group-item {
+        border: none;
+        padding: 0.75rem 1.25rem;
+        transition: all 0.3s ease;
+    }
+    
+    .list-group-item:hover {
+        background-color: rgba(26, 115, 232, 0.1);
+        transform: translateX(5px);
+    }
+    
+    .list-group-item i {
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+    }
+    
+    .card {
+        transition: transform 0.3s ease;
+        margin-bottom: 20px;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .opacity-50 {
+        opacity: 0.5;
+    }
+    
+    .btn-outline-primary {
+        margin-right: 5px;
+    }
+    
+    @media (max-width: 768px) {
+        .sidebar {
+            position: static;
+            height: auto;
+            padding-bottom: 20px;
+        }
+    }
+</style>
+{% endblock %}
+
+

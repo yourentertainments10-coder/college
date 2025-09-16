@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}Academics - DSEU{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Sidebar with Navigation -->
+        <nav class="col-md-3 col-lg-2 sidebar bg-light p-3">
+            <div class="sidebar-sticky">
+                <h5 class="mb-3">Quick Links</h5>
+                <div class="list-group">
+                    <a href="{{ url_for('home') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="#undergraduate" class="list-group-item list-group-item-action">
+                        <i class="fas fa-graduation-cap"></i> Undergraduate
+                    </a>
+                    <a href="#postgraduate" class="list-group-item list-group-item-action">
+                        <i class="fas fa-user-graduate"></i> Postgraduate
+                    </a>
+                    <a href="#departments" class="list-group-item list-group-item-action">
+                        <i class="fas fa-building"></i> Departments
+                    </a>
+                    <a href="#research" class="list-group-item list-group-item-action">
+                        <i class="fas fa-microscope"></i> Research
+                    </a>
+                    <a href="#faculty" class="list-group-item list-group-item-action">
+                        <i class="fas fa-chalkboard-teacher"></i> Faculty
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Academic Programs</h1>
+            </div>
+
+            <!-- Undergraduate Section -->
+            <section id="undergraduate" class="mb-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Undergraduate Programs</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">B.Tech Programs</h5>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success mr-2"></i>Computer Science</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Mechanical Engineering</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Civil Engineering</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">BBA Programs</h5>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success mr-2"></i>Business Administration</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Banking & Finance</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Digital Marketing</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Departments Section -->
+            <section id="departments" class="mb-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0">Academic Departments</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <h4><i class="fas fa-laptop-code mr-2"></i>School of Engineering</h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Computer Science & Engineering</li>
+                                    <li class="list-group-item">Mechanical Engineering</li>
+                                    <li class="list-group-item">Civil Engineering</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <h4><i class="fas fa-business-time mr-2"></i>School of Business</h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Business Administration</li>
+                                    <li class="list-group-item">Economics</li>
+                                    <li class="list-group-item">Finance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .sidebar {
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        min-height: calc(100vh - 60px);
+    }
+    
+    .list-group-item {
+        border: none;
+        padding: 0.75rem 1.25rem;
+        transition: all 0.3s ease;
+    }
+    
+    .list-group-item:hover {
+        background-color: rgba(26, 115, 232, 0.1);
+        transform: translateX(5px);
+    }
+    
+    .list-group-item i {
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+    }
+    
+    .card {
+        transition: transform 0.3s ease;
+        margin-bottom: 20px;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    
+    @media (max-width: 768px) {
+        .sidebar {
+            position: static;
+            height: auto;
+            padding-bottom: 20px;
+        }
+    }
+</style>
+{% endblock %}
+
+

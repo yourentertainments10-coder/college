@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}500 - Server Error{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <div class="error-page animate__animated animate__fadeIn">
+                <i class="fas fa-cogs text-warning fa-5x mb-4"></i>
+                <h1 class="display-4 mb-4">500 - Server Error</h1>
+                <p class="lead mb-4">Oops! Something went wrong on our end.</p>
+                <div class="error-details mb-4">
+                    <p>We're working to fix this issue. Please try again later.</p>
+                </div>
+                <div class="error-actions">
+                    <a href="{{ url_for('home') }}" class="btn btn-primary btn-lg mr-3">
+                        <i class="fas fa-home mr-2"></i>Return Home
+                    </a>
+                    <a href="{{ url_for('contact_us') }}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-envelope mr-2"></i>Report Issue
+                    </a>
+                </div>
+                <div class="mt-5">
+                    <h5>In the meantime, you can:</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li><a href="{{ url_for('home') }}" class="text-primary"><i class="fas fa-home mr-2"></i>Visit our homepage</a></li>
+                        <li><a href="{{ url_for('contact_us') }}" class="text-primary"><i class="fas fa-headset mr-2"></i>Contact our support team</a></li>
+                        <li><a href="javascript:history.back()" class="text-primary"><i class="fas fa-arrow-left mr-2"></i>Go back to previous page</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .error-page {
+        padding: 40px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    
+    .error-actions {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .error-actions .btn {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .list-unstyled li {
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+    }
+    
+    .list-unstyled li:hover {
+        transform: translateX(10px);
+    }
+    
+    .text-primary {
+        text-decoration: none;
+    }
+    
+    .text-primary:hover {
+        text-decoration: none;
+        opacity: 0.8;
+    }
+</style>
+{% endblock %} 

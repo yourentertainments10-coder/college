@@ -1,0 +1,125 @@
+<html><head><title>Student Portal</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        /* Centering and styling the portal section */
+        .portal {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Title styling */
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        /* Label styling */
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Input field styling */
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Button styling */
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button hover effect */
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer styling */
+        footer {
+            margin-top: 20px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 400px) {
+            .portal {
+                width: 90%;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            input[type="submit"] {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <nav>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('academic') }}">Departments</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('admission_notices') }}">Admissions</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('about_us') }}">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('contact_us') }}">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+    </ul>
+</nav>
+
+ 
+    <section class="portal">
+        <h1>Student Portal Login</h1>
+        <form action="student-dashboard.html" method="POST">
+            <label for="student-id">Student ID:</label>
+            <input type="text" placeholder="Enter ID" id="student-id" name="student-id" required>
+
+            <label for="password">Password:</label>
+            <input type="password" placeholder="Enter password" id="password" name="password" required>
+
+            <input type="submit" value="Login">
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 Delhi Skill Entrepreneurship University | All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+

@@ -1,0 +1,396 @@
+{% extends "base.html" %}
+
+{% block title %}DSEU - Home{% endblock %}
+
+{% block content %}
+    {% if error %}
+        <div class="alert alert-danger">
+            Database connection error. Please try again later.
+        </div>
+    {% endif %}
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <!-- Hero Section with Creative Image Treatment -->
+    <div class="hero-section position-relative">
+        <div class="hero-image-container">
+            <img src="https://static-bestcolleges.tosshub.com/2024/News/sPIySslrg6uiCsI3cxHFce2t2fCODhiYjY0XCRam.jpg" 
+                 class="hero-image" alt="Welcome Image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content text-center">
+            <h1 class="display-3 text-white mb-4 animate__animated animate__fadeInDown">Welcome to DSEU</h1>
+            <p class="lead text-white mb-4 animate__animated animate__fadeInUp">Shaping Tomorrow's Leaders Today</p>
+            <div class="hero-buttons animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+                <a href="{{ url_for('admission_notices') }}" class="btn btn-primary btn-lg mr-3">
+                    <i class="fas fa-paper-plane mr-2"></i>Apply Now
+                </a>
+                <a href="{{ url_for('academic') }}" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-book mr-2"></i>Explore Programs
+                </a>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Quick Links -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4 animate-on-scroll">Quick Access</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 animate-on-scroll">
+                        <div class="card-body text-center">
+                            <i class="fas fa-newspaper fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Admission Notices</h5>
+                            <a href="{{ url_for('admission_notices') }}" class="btn btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 animate-on-scroll">
+                        <div class="card-body text-center">
+                            <i class="fas fa-graduation-cap fa-3x mb-3 text-success"></i>
+                            <h5 class="card-title">Exam Results</h5>
+                            <a href="{{ url_for('exam_result') }}" class="btn btn-outline-success">Check Results</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 animate-on-scroll">
+                        <div class="card-body text-center">
+                            <i class="fas fa-user-graduate fa-3x mb-3 text-info"></i>
+                            <h5 class="card-title">Student Portal</h5>
+                            <a href="{{ url_for('student_login') }}" class="btn btn-outline-info">Login</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 animate-on-scroll">
+                        <div class="card-body text-center">
+                            <i class="fas fa-chalkboard-teacher fa-3x mb-3 text-warning"></i>
+                            <h5 class="card-title">Faculty Portal</h5>
+                            <a href="{{ url_for('faculty_login') }}" class="btn btn-outline-warning">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Updates -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 animate-on-scroll">Latest Updates</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card mb-4 animate-on-scroll">
+                        <div class="card-body">
+                            <h5 class="card-title">Campus News</h5>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">New Course Announcements</h6>
+                                        <small>3 days ago</small>
+                                    </div>
+                                    <p class="mb-1">Check out our new courses for the upcoming semester.</p>
+                                </a>
+                                <!-- Add more news items -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card animate-on-scroll">
+                        <div class="card-body">
+                            <h5 class="card-title">Important Dates</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i class="far fa-calendar-alt text-primary mr-2"></i>
+                                    Admission Start: July 1, 2024
+                                </li>
+                                <li class="mb-2">
+                                    <i class="far fa-calendar-alt text-primary mr-2"></i>
+                                    Semester Begin: August 1, 2024
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Life -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4 animate-on-scroll">Campus Life</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card animate-on-scroll">
+                        <img src="path_to_image" class="card-img-top" alt="Campus">
+                        <div class="card-body">
+                            <h5 class="card-title">Modern Facilities</h5>
+                            <p class="card-text">State-of-the-art laboratories and classrooms.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more campus life cards -->
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Hero Section Styles */
+    .hero-section {
+        height: 100vh;
+        min-height: 500px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(26,115,232,0.8) 0%, rgba(52,168,83,0.8) 100%);
+    }
+
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        padding: 0 20px;
+        z-index: 2;
+    }
+
+    /* Quick Links Section */
+    .quick-links .card {
+        height: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .quick-links .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    /* News & Updates Section */
+    .news-card {
+        transition: transform 0.3s ease;
+    }
+
+    .news-card:hover {
+        transform: translateX(10px);
+    }
+
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 576px) {
+        .hero-section {
+            height: 60vh;
+            min-height: 400px;
+        }
+
+        .hero-content h1 {
+            font-size: 2rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .hero-content p {
+            font-size: 1rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        .hero-buttons .btn {
+            display: block;
+            width: 80%;
+            margin: 0.5rem auto;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .quick-links .card {
+            margin-bottom: 1rem;
+        }
+
+        .quick-links .card-body {
+            padding: 1rem;
+        }
+
+        .quick-links .fa-3x {
+            font-size: 2em;
+        }
+
+        .news-section .card {
+            margin-bottom: 1rem;
+        }
+
+        .news-section .list-group-item {
+            padding: 0.75rem;
+        }
+    }
+
+    /* Tablet Responsive Adjustments */
+    @media (min-width: 577px) and (max-width: 991px) {
+        .hero-section {
+            height: 70vh;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem !important;
+        }
+
+        .quick-links .card {
+            margin-bottom: 1.5rem;
+        }
+
+        .news-section .card {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    /* Common Responsive Styles */
+    @media (max-width: 991px) {
+        .container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .row {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+
+        .col-md-3, .col-md-4, .col-md-6, .col-md-8 {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .card {
+            margin-bottom: 1rem;
+        }
+
+        .display-3 {
+            font-size: 2.5rem;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+        }
+    }
+
+    /* Enhanced Touch Targets for Mobile */
+    @media (max-width: 768px) {
+        .btn, 
+        .nav-link,
+        .list-group-item {
+            min-height: 44px;
+            padding: 12px 15px;
+        }
+
+        .form-control {
+            height: 44px;
+            padding: 10px 15px;
+        }
+
+        .navbar-toggler {
+            padding: 10px;
+            margin: 5px;
+        }
+    }
+
+    /* Improved Animation Performance */
+    .animate__animated {
+        will-change: transform, opacity;
+    }
+
+    /* Better Scrolling Experience */
+    .scroll-container {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+
+    /* Loading Optimization */
+    .hero-image {
+        transition: opacity 0.3s ease;
+        opacity: 0;
+    }
+
+    .hero-image.loaded {
+        opacity: 1;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $(document).ready(function() {
+        // Image loading optimization
+        $('.hero-image').on('load', function() {
+            $(this).addClass('loaded');
+        }).each(function() {
+            if(this.complete) $(this).trigger('load');
+        });
+
+        // Smooth scroll for mobile
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            let target = $($(this).attr('href'));
+            if(target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 60
+                }, 500);
+            }
+        });
+
+        // Lazy loading for images
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        }
+
+        // Better mobile menu behavior
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('nav-open');
+        });
+    });
+</script>
+{% endblock %}
+
+
+
+

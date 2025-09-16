@@ -1,0 +1,300 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - DSEU{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Sidebar with Navigation -->
+        <nav class="col-md-3 col-lg-2 sidebar bg-light p-3">
+            <div class="sidebar-sticky">
+                <h5 class="mb-3">Quick Links</h5>
+                <div class="list-group">
+                    <a href="{{ url_for('home') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="#contact-form" class="list-group-item list-group-item-action">
+                        <i class="fas fa-envelope"></i> Contact Form
+                    </a>
+                    <a href="#location" class="list-group-item list-group-item-action">
+                        <i class="fas fa-map-marker-alt"></i> Location
+                    </a>
+                    <a href="#departments" class="list-group-item list-group-item-action">
+                        <i class="fas fa-building"></i> Departments
+                    </a>
+                    <a href="#social" class="list-group-item list-group-item-action">
+                        <i class="fas fa-share-alt"></i> Social Media
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 px-4">
+            <!-- Hero Section -->
+            <div class="contact-hero text-center py-5 mb-5 animate__animated animate__fadeIn">
+                <h1 class="display-4 mb-3">Get in Touch</h1>
+                <p class="lead">We're here to help and answer any question you might have</p>
+            </div>
+
+            <!-- Quick Contact Cards -->
+            <div class="row mb-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center animate__animated animate__fadeInUp">
+                        <div class="card-body">
+                            <i class="fas fa-phone-alt fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">Call Us</h5>
+                            <p class="card-text">+91 XXXXXXXXXX</p>
+                            <p class="card-text text-muted">Mon-Fri, 9:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                        <div class="card-body">
+                            <i class="fas fa-envelope fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Email Us</h5>
+                            <p class="card-text">info@dseu.ac.in</p>
+                            <p class="card-text text-muted">We'll respond within 24 hours</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                        <div class="card-body">
+                            <i class="fas fa-map-marker-alt fa-3x text-danger mb-3"></i>
+                            <h5 class="card-title">Visit Us</h5>
+                            <p class="card-text">DSEU Dwarka Campus, Sector 9</p>
+                            <p class="card-text text-muted">New Delhi, 110077</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form Section -->
+            <section id="contact-form" class="mb-5">
+                <div class="card shadow-lg animate__animated animate__fadeInUp">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Send us a Message</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form method="POST" action="{{ url_for('contact_us') }}" class="needs-validation" novalidate>
+                                    {{ form.csrf_token if form }}
+                                    <div class="form-group">
+                                        <label for="name">Full Name</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" id="name" name="name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email Address</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                            </div>
+                                            <input type="email" class="form-control" id="email" name="email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="subject">Subject</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                            </div>
+                                            <select class="custom-select" id="subject" name="subject" required>
+                                                <option value="" selected disabled>Select a subject</option>
+                                                <option value="admission">Admission Inquiry</option>
+                                                <option value="academic">Academic Query</option>
+                                                <option value="technical">Technical Support</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message">Message</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                                            </div>
+                                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                        <i class="fas fa-paper-plane mr-2"></i>Send Message
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-info p-4">
+                                    <h4 class="mb-4">Department Contacts</h4>
+                                    <div class="department-list">
+                                        <div class="department-item mb-3">
+                                            <h5><i class="fas fa-graduation-cap text-primary mr-2"></i>Admissions</h5>
+                                            <p>admissions@dseu.ac.in</p>
+                                        </div>
+                                        <div class="department-item mb-3">
+                                            <h5><i class="fas fa-book text-success mr-2"></i>Academics</h5>
+                                            <p>academics@dseu.ac.in</p>
+                                        </div>
+                                        <div class="department-item mb-3">
+                                            <h5><i class="fas fa-users text-info mr-2"></i>Student Affairs</h5>
+                                            <p>student.affairs@dseu.ac.in</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Map Section -->
+            <section id="location" class="mb-5">
+                <div class="card shadow-lg animate__animated animate__fadeInUp">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0">Our Location</h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.2747741868396!2d77.0693393!3d28.5817773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1b1923e0b0e7%3A0x1591c0b85a8a2c88!2sDelhi%20Skill%20and%20Entrepreneurship%20University%20(DSEU)%20Dwarka%20Campus!5e0!3m2!1sen!2sin!4v1648226514762!5m2!1sen!2sin"
+                                allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .contact-hero {
+        background: linear-gradient(135deg, #1a73e8 0%, #34a853 100%);
+        color: white;
+        border-radius: 15px;
+        margin-top: 20px;
+    }
+
+    .card {
+        border: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+
+    .input-group-text {
+        background-color: #f8f9fa;
+        border: none;
+    }
+
+    .form-control {
+        border: 2px solid #e9ecef;
+        padding: 0.75rem;
+    }
+
+    .form-control:focus {
+        border-color: #1a73e8;
+        box-shadow: 0 0 0 0.2rem rgba(26,115,232,0.25);
+    }
+
+    .department-item {
+        padding: 15px;
+        border-radius: 10px;
+        background: #f8f9fa;
+        transition: all 0.3s ease;
+    }
+
+    .department-item:hover {
+        background: #e9ecef;
+        transform: translateX(10px);
+    }
+
+    .btn-primary {
+        padding: 12px 25px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+        .contact-hero {
+            margin-top: 10px;
+            padding: 30px 15px;
+        }
+    }
+
+    /* Additional styles for form alignment */
+    .custom-select {
+        height: calc(1.5em + 1.5rem + 2px);
+        padding: 0.75rem 1rem;
+        border: 2px solid #e9ecef;
+        border-radius: 0 10px 10px 0;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
+    }
+
+    .input-group-text {
+        min-width: 40px;
+        justify-content: center;
+        background-color: #f8f9fa;
+        border: 2px solid #e9ecef;
+        border-right: none;
+    }
+
+    .input-group .form-control,
+    .input-group .custom-select {
+        border-left: none;
+    }
+
+    .input-group:focus-within .input-group-text {
+        border-color: #80bdff;
+    }
+
+    .input-group:focus-within .form-control,
+    .input-group:focus-within .custom-select {
+        border-color: #80bdff;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Form validation
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+{% endblock %} 
