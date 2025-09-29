@@ -1,0 +1,6 @@
+flask
+flask-wtf
+wtforms
+psycopg2-binary
+bcrypt
+werkzeug
